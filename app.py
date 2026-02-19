@@ -21,7 +21,8 @@ st.title("💬 AETHER-NET v51.01")
 st.caption("Status: Active | Core: Gemini 2.0 Flash | Encoding: UTF-8")
 
 # 3. API 키 설정 (새로 발급받은 키를 여기에 넣으세요)
-API_KEY = "AIzaSyACC0ohR1r-zjMjgFRKycSEJnq2OaqZyvE"
+# 절대로 키를 직접 넣지 마세요! 아래 한 줄로 대체합니다.
+API_KEY = st.secrets["GEMINI_API_KEY"]
 
 try:
     client = genai.Client(api_key=API_KEY)
@@ -78,4 +79,5 @@ if prompt := st.chat_input("Accessing AETHER-NET..."):
             elif "ascii" in error_msg.lower():
                 st.error("⚠️ 인코딩 오류: 시스템 환경을 UTF-8로 변경해야 합니다.")
             else:
+
                 st.error(f"⚠️ 시스템 오류: {error_msg}")
